@@ -97,11 +97,15 @@ def scrape_detik(query, start_date, end_date, db_config, table_name):
 
 # Konfigurasi database PostgreSQL
 db_config = {
-    'dbname': 'covidnews',
+    'dbname': 'covid',
     'user': 'postgres',
     'password': 'admin',
     'host': 'localhost',
 }
 
 # Contoh pemanggilan fungsi
-scrape_detik('Kecelakaan Cibubur', '18/07/2022', '24/07/2022', db_config, 'kecelakaancibubur')
+for tanggal in range(16,31):
+  print(tanggal)  
+  scrape_detik('COVID-19', f'{tanggal}/09/2020', f'{tanggal}/09/2020', db_config, f'covid_{tanggal}092020')
+
+# scrape_detik('COVID-19', '01/03/2023', '31/03/2023', db_config, 'covid_032023')
